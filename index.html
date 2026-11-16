@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1420">
+  <meta name="description" content="APEX OS — focused university and government scholarship research for Fall 2028.">
+  <title>APEX OS — University & Government Scholarship Research</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <div class="brand-mark">A</div>
+        <div class="brand-copy"><strong>APEX OS</strong><span>GLOBAL ADMISSIONS</span></div>
+        <button class="mobile-close" id="closeSidebar" aria-label="Close navigation">×</button>
+      </div>
+      <div class="side-label">RESEARCH</div>
+      <nav class="main-nav" aria-label="Research navigation">
+        <button class="nav-link active" data-view="overview"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-link" data-view="universities"><span class="nav-icon">▤</span>Universities <span class="nav-count" id="universityCount">13</span></button>
+        <button class="nav-link" data-view="scholarships"><span class="nav-icon">◇</span>Government scholarships <span class="nav-count" id="scholarshipCount">05</span></button>
+      </nav>
+      <div class="side-label side-gap">PERSONAL</div>
+      <nav class="main-nav" aria-label="Personal navigation">
+        <button class="nav-link" data-view="priorities"><span class="nav-icon">✧</span>Priority list</button>
+        <button class="nav-link" data-view="settings"><span class="nav-icon">⚙</span>Settings & backup</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="target-pill"><span class="pulse-dot"></span><div><strong>FALL 2028 INTAKE</strong><small>Research cycle · 2028–29</small></div></div>
+        <div class="sidebar-foot"><span class="cloud-dot" id="cloudDot"></span><span id="cloudLabel">Local workspace</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>APEX OS</span><i>/</i><strong id="breadcrumbCurrent">Overview</strong></div>
+        <div class="topbar-actions">
+          <div class="global-search-wrap"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search universities or government scholarships" autocomplete="off" aria-label="Search profiles"><div id="searchResults" class="search-results hidden"></div></div>
+          <button class="icon-button" id="authOpen" title="Account and cloud sync">☁</button>
+          <span class="save-state" id="saveState">Saved locally</span>
+        </div>
+      </header>
+      <section class="content" id="content" tabindex="-1"></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal-backdrop hidden" id="authbox" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal auth-modal">
+      <button class="modal-close" id="authClose" aria-label="Close">×</button>
+      <div class="modal-eyebrow">APEX ACCOUNT</div>
+      <h2 id="authTitle">Cloud sync</h2>
+      <p class="muted-copy">Sign in to sync your university notes, priorities and application status across devices. Your records remain available locally too.</p>
+      <label>Email address<input id="authEmail" type="email" autocomplete="username" placeholder="you@example.com"></label>
+      <label>Password<input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 8 characters"></label>
+      <div class="auth-actions"><button class="btn primary" id="signInButton">Sign in</button><button class="btn" id="signUpButton">Create account</button></div>
+      <button class="text-button" id="signOutButton">Sign out of this device</button>
+      <div class="auth-message" id="authmsg"></div>
+      <div class="privacy-note">APEX OS uses its own Supabase project. Your notes are private to your signed-in account.</div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop" role="dialog" aria-modal="true"><div class="modal" id="modal"></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

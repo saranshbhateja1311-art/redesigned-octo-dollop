@@ -1,0 +1,6 @@
+{
+  "appId": "com.apex.os",
+  "appName": "APEX OS",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}
